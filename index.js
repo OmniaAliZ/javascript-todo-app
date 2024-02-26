@@ -29,7 +29,7 @@ if (window.localStorage.getItem("tasks")) {
 getTasks();
 
 addButton.onclick = function () {
-  if (!input.value) {
+  if (input.value) {
     addTask(input.value, inputDescription.value); // add task to array of objects
     input.value = ""; //empty input field
     inputDescription.value = ""; //empty input feild
