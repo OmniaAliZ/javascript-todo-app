@@ -32,22 +32,33 @@
     <main>
       <div class="todo-container">
         <h1>To Do List</h1>
-        <div class="input-container">
+        <div>
+          <span class="counter" id="counter">
+
+        </span></div>
+        <div class="form">
           <input
             type="text"
-            id="Todo-input"
-            class="Todo-input"
+            id="todo-input"
+            class="todo-input"
             placeholder="Add a new task..."
           />
-          <button id="Todo-button" class="Todo-button">
+          <input type="text" id="input-description" class="input-description" placeholder="Add description...">
+          <button id="todo-button" value="Add Task" class="todo-button" type="submit">
             <i class="fa-solid fa fa-plus" style="color: #ffffff"></i>
           </button>
         </div>
-
-        <ul id="todo-list" class="todo-list"></ul>
+        <div>
+          <input type="text" name="search" id="search" class="search" placeholder="Search...">
+        </div>
+        <div class="tasks">
+          <ul id="todo-list" class="todo-list"></ul>
+        </div>
 
         <!-- img -->
-        <!-- <img class="empty-image" src="./imgs/feather.png" alt="empty list" />  -->
+        <!-- <span class="empty-span">No Tasks Currently</span>
+        <img class="empty-image" src="./imgs/feather.png" alt="empty list" />  -->
+
       </div>
     </main>
     <script src="./index.js"></script>

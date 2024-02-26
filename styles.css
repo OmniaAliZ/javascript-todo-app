@@ -41,6 +41,7 @@ body {
   border: 2px solid #84929e;
   border-radius: 10px;
   backdrop-filter: blur(15px);
+  filter: brightness(0.5); /* use for tasks*/
   margin-bottom: 100px;
   /* overflow-wrap: anywhere; */
 }
@@ -49,17 +50,18 @@ h1 {
   text-align: center;
   margin-bottom: 25px;
 }
-.input-container {
+.form {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
   /* flex-wrap: wrap; */
 }
-.Todo-input {
+.todo-input {
   flex: 1;
   outline: none;
   padding-left: 10px;
-  padding-right: 90px;
+  padding-right: 10px;
+  width: 310px;
   padding: auto;
   background-color: transparent;
   border: 2px solid #84929e;
@@ -68,7 +70,7 @@ h1 {
   border-radius: 5px;
   margin-right: 10px;
 }
-.Todo-input::placeholder {
+.todo-input::placeholder {
   color: white;
   text-align: left;
 }
@@ -79,7 +81,7 @@ h1 {
   }
 }
 
-.Todo-button {
+.todo-button {
   border: none;
   outline: none;
   background: none;
@@ -91,7 +93,7 @@ h1 {
 .todo-list {
   padding-left: 0;
 }
-.todo-list li {
+.todo {
   background-color: rgba(255, 255, 255, 0.591);
   display: flex;
   border-radius: 5px;
@@ -103,26 +105,26 @@ h1 {
   padding: 8px;
   /* overflow-wrap:anywhere; */
 }
-.todo-list li:hover {
+.todo:hover {
   background-color: rgba(255, 255, 255, 0.381);
 }
-
-.check-text {
+.text-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.check-text span {
+.text-text span {
   line-break: anywhere;
   margin-right: auto;
 }
-
+.description {
+  display: block;
+}
 .edit-delete {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .delete-button {
   border: none;
   outline: none;
@@ -147,4 +149,7 @@ h1 {
   display: block;
   width: 150px;
   opacity: 80%;
+}
+.empty-span {
+  color: #84929e;
 }

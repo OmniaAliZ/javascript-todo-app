@@ -7,27 +7,27 @@ This project aims to build a to do list application by applying HTML, CSS and Ja
 In this level, the application includes the following features:
 
 1. Adding a Todo:
-   - Display an input field where users can enter a new todo item.
-   - Include an "Add" button to add the entered todo item to the list.
+   - Display an input field where users can enter a new todo item. Done
+   - Include an "Add" button to add the entered todo item to the list. Done
 
 2. Rendering Todo List:
-   - Render the list of todos on the screen.
-   - Each todo item should display a checkbox and the task description.
+   - Render the list of todos on the screen. Done
+   - Each todo item should display a checkbox and the task description. Done
 
 3. Deleting a Todo:
-   - Implement a "Delete" button next to each todo item.
-   - When the button is clicked, remove the corresponding todo item from the list.
+   - Implement a "Delete" button next to each todo item. Done
+   - When the button is clicked, remove the corresponding todo item from the list. Done
 
 ## Level 2: Todo App Additional Requirements
 
 In addition to the basic requirements, the application enhances its functionality with the following features:
 
 1. Editing a Todo:
-   - Implement an "Edit" button next to each todo item.
-   - When the button is clicked, allow users to update the task description of the corresponding todo.
+   - Implement an "Edit" button next to each todo item. Done
+   - When the button is clicked, allow users to update the task description of the corresponding todo. Done
 
 2. Todo Counter:
-   - Include a counter that displays the total number of todo items.
+   - Include a counter that displays the total number of todo items. Done
 
 
 ## Level 3: Todo App Bonus Requirements (Optional)
@@ -35,11 +35,11 @@ In addition to the basic requirements, the application enhances its functionalit
 If you have a higher skill level and finish the previous requirements before the deadline, you can tackle the following bonus tasks:
 
 1. Persistent Storage:
-   - Add the ability to persist todo items using local storage.
-   - Ensure that the list remains intact even after the page is refreshed.
+   - Add the ability to persist todo items using local storage. Done
+   - Ensure that the list remains intact even after the page is refreshed. Done
 
 2. Search Functionality:
-   - Implement a search functionality that allows users to search for specific todo items based on keywords.
+   - Implement a search functionality that allows users to search for specific todo items based on keywords. Done
 
 3. Peer Review:
    - Review the code and implementation of 2 assignments from other participants.
