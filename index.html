@@ -23,33 +23,59 @@
     <title>Todo</title>
   </head>
   <body>
-    <section>
+    <section class="header">
+      <h1>To Do List</h1>
       <p class="catchy-line">
         stay on track by streamlining your tasks <br />
         and boost your productivity
       </p>
     </section>
     <main>
+      <div class="counter-design">
+        <span>You Have (</span>
+        <span class="counter" id="counter">0</span>
+        <span>) Tasks </span>
+      </div>
       <div class="todo-container">
-        <h1>To Do List</h1>
-        <div>
-          <span class="counter" id="counter">
-
-        </span></div>
         <div class="form">
-          <input
-            type="text"
-            id="todo-input"
-            class="todo-input"
-            placeholder="Add a new task..."
-          />
-          <input type="text" id="input-description" class="input-description" placeholder="Add description...">
-          <button id="todo-button" value="Add Task" class="todo-button" type="submit">
+          <section class="inputs-section">
+            <div class="form-group">
+              <input
+                type="text"
+                id="todo-input"
+                class="todo-input"
+                placeholder="Add a new task..."
+              />
+              <label class="form-label">Add Task</label>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="input-description"
+                class="input-description"
+                placeholder="Add description..."
+              />
+              <label class="form-label">Add Description</label>
+            </div>
+          </section>
+          <button
+            id="todo-button"
+            value="Add Task"
+            class="todo-button"
+            type="submit"
+          >
             <i class="fa-solid fa fa-plus" style="color: #ffffff"></i>
           </button>
         </div>
-        <div>
-          <input type="text" name="search" id="search" class="search" placeholder="Search...">
+        <div class="search-group">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            class="search"
+            placeholder="Search..."
+          />
+          <label class="search-label">Search for tasks</label>
         </div>
         <div class="tasks">
           <ul id="todo-list" class="todo-list"></ul>
@@ -58,7 +84,6 @@
         <!-- img -->
         <!-- <span class="empty-span">No Tasks Currently</span>
         <img class="empty-image" src="./imgs/feather.png" alt="empty list" />  -->
-
       </div>
     </main>
     <script src="./index.js"></script>

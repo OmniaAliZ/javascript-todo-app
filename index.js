@@ -2,20 +2,21 @@ const input = document.getElementById("todo-input"); // title input
 const inputDescription = document.getElementById("input-description"); //description input
 const addButton = document.getElementById("todo-button"); //button
 
-const searchBar = document.querySelector(".search"); //search input
+const searchBar = document.getElementById("search"); //.querySelector(".search"); //search input
 
 let todos = document.getElementById("todo-list"); //ul
 
-let tasksCounter = document.getElementById("counter");// counter span
+let tasksCounter = document.getElementById("counter"); // counter span
 
-
-// first, check the local storage whether it has counter value or not, if yes, get the counter from localstorage, if no set it to 0 
-
+// first, check the local storage whether it has counter value or not, if yes, get the counter from localstorage, if no set it to 0
 
 let counterItems = 0;
 
-if(window.localStorage.getItem("counter")){
-    counterItems = JSON.parse(window.localStorage.getItem("counter"));
+if (window.localStorage.getItem("counter")) {
+  counterItems = JSON.parse(window.localStorage.getItem("counter"));
+  if (counterItems < 0) {
+    counterItems = 0;
+  }
 }
 // let todosStorage = JSON.parse(localStorage.getItem("todo-list"));
 
@@ -58,8 +59,7 @@ function addTask(taskTitle, taskDescription) {
 }
 
 function showTasks(tasks) {
-
-    tasksCounter.innerText=counterItems;
+  tasksCounter.innerText = counterItems;
   todos.innerHTML = "";
   tasks.forEach((task) => {
     let todoList = document.createElement("li"); // li contains: 3 divs
@@ -82,15 +82,19 @@ function showTasks(tasks) {
 
     if (task.checked) {
       todoList.className = "todo done"; //.todo.done
-      checkBox.checked = true;
+      // checkBox.checked = true;
+      checkBox.setAttribute("checked", true);
+      todoList.style.textDecoration = `line-through`;
     }
 
     let todo = document.createElement("span"); // li title
     todo.innerText = `${task.title}`;
+    todo.className = "title";
     todoSpanDiv.appendChild(todo);
 
     let description = document.createElement("span"); //li discription
     description.innerText = `${task.description}`;
+    description.className = "description";
     todoSpanDiv.appendChild(description);
 
     let delBtn = document.createElement("button"); // li delete button
@@ -119,11 +123,15 @@ function showTasks(tasks) {
     checkBox.addEventListener("click", function () {
       let style = checkBox.parentElement.parentElement.style.textDecoration;
       if (style === `line-through`) {
+        todoList.className = "todo";
         checkBox.parentElement.parentElement.style.textDecoration = `none`;
         task.checked = false;
+        checkBox.setAttribute("checked", false);
       } else {
+        todoList.className = "todo done";
         checkBox.parentElement.parentElement.style.textDecoration = `line-through`;
         task.checked = true;
+        checkBox.setAttribute("checked", true);
       }
       addToLocal(tasks);
       counterToLocal();
@@ -172,8 +180,8 @@ function delTask(taskId) {
 function addToLocal(tasks) {
   window.localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-function counterToLocal(){
-    window.localStorage.setItem("counter",JSON.stringify(counterItems));
+function counterToLocal() {
+  window.localStorage.setItem("counter", JSON.stringify(counterItems));
 }
 
 function getTasks() {
