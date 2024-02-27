@@ -1,7 +1,7 @@
 const input = document.getElementById("todo-input"); // title input
 const inputDescription = document.getElementById("input-description"); //description input
 const addButton = document.getElementById("todo-button"); //button
-
+const emptyTasks = document.getElementById("empty-tasks");
 const searchBar = document.getElementById("search"); //.querySelector(".search"); //search input
 
 let todos = document.getElementById("todo-list"); //ul
@@ -35,8 +35,8 @@ addButton.onclick = function () {
     input.value = ""; //empty input field
     inputDescription.value = ""; //empty input feild
     counterItems++;
-    console.log(counterItems);
     tasksCounter.textContent = counterItems;
+    showImg();
     counterToLocal();
   } else {
     alert("please enter a task first !");
@@ -61,6 +61,8 @@ function addTask(taskTitle, taskDescription) {
 function showTasks(tasks) {
   tasksCounter.innerText = counterItems;
   todos.innerHTML = "";
+
+  showImg();
   tasks.forEach((task) => {
     let todoList = document.createElement("li"); // li contains: 3 divs
     todoList.classList.add("todo");
@@ -112,12 +114,10 @@ function showTasks(tasks) {
 
     delBtn.addEventListener("click", (e) => {
       let target = e.target.parentElement.parentElement.parentElement;
-
-      //remove local
-      delTask(target.getAttribute("task-id"));
       //remove li
       target.remove();
-      //
+      //remove local
+      delTask(target.getAttribute("task-id"));
     });
 
     checkBox.addEventListener("click", function () {
@@ -158,7 +158,7 @@ function showTasks(tasks) {
       const searchText = e.target.value.toLowerCase();
       if (searchText !== "") {
         let filterArray = tasks.filter((task) => {
-          return task.title.includes(searchText);
+          return task.title.toLowerCase().includes(searchText);
         });
         showTasks(filterArray);
       } else {
@@ -172,13 +172,16 @@ function delTask(taskId) {
   tasks = tasks.filter((task) => task.date != taskId);
   addToLocal(tasks);
   counterItems--;
-  console.log(counterItems);
+
   tasksCounter.textContent = counterItems;
+
+  showImg();
   counterToLocal();
 }
 
 function addToLocal(tasks) {
   window.localStorage.setItem("tasks", JSON.stringify(tasks));
+  getTasks();
 }
 function counterToLocal() {
   window.localStorage.setItem("counter", JSON.stringify(counterItems));
@@ -191,3 +194,20 @@ function getTasks() {
     showTasks(tasks);
   }
 }
+
+function showImg() {
+  if (counterItems == 0) {
+    emptyTasks.style.display = "block";
+  } else {
+    emptyTasks.style.display = "none";
+  }
+}
+// function showImg() {
+
+//     // Document.getElementsByTagName()
+//     let isEmpty = document.getElementById("todo-list").getElementsByTagName("li").length;
+//     if(!isEmpty){
+//                 emptyTasks.style.display = "block";
+//             } else {
+//               emptyTasks.style.display = "none";
+//             }}
